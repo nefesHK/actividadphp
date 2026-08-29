@@ -2,39 +2,248 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Fácil | Productos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 650px;
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .encabezado {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .icono {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            color: #777;
+            font-size: 15px;
+        }
+
+        .producto {
+            background: #f8f9ff;
+            border: 1px solid #e5e7ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .producto-titulo {
+            color: #5a67d8;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .campo {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+        }
+
+        .boton {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.35);
+        }
+
+        .pie {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @media (max-width: 500px) {
+            .contenedor {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Registro de 3 Productos</h1>
+    <div class="contenedor">
 
-    <form action="procesar.php" method="POST">
+        <div class="encabezado">
+            <div class="icono">🛒</div>
+            <h1>Compra Fácil</h1>
+            <p class="subtitulo">
+                Ingresa los datos de tus tres productos
+            </p>
+        </div>
 
-        <h3>Producto 1</h3>
-        <label>Nombre:</label>
-        <input type="text" name="producto1" required>
+        <form action="procesar.php" method="POST">
 
-        <label>Precio:</label>
-        <input type="number" name="precio1" step="0.01" min="0" required>
+            <!-- PRODUCTO 1 -->
+            <div class="producto">
+                <div class="producto-titulo">🛍️ Producto 1</div>
 
-        <h3>Producto 2</h3>
-        <label>Nombre:</label>
-        <input type="text" name="producto2" required>
+                <div class="campo">
+                    <label for="producto1">Nombre del producto</label>
+                    <input
+                        type="text"
+                        id="producto1"
+                        name="producto1"
+                        placeholder="Ej: Audífonos"
+                        required
+                    >
+                </div>
 
-        <label>Precio:</label>
-        <input type="number" name="precio2" step="0.01" min="0" required>
+                <div class="campo">
+                    <label for="precio1">Precio</label>
+                    <input
+                        type="number"
+                        id="precio1"
+                        name="precio1"
+                        placeholder="Ej: 50000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+            </div>
 
-        <h3>Producto 3</h3>
-        <label>Nombre:</label>
-        <input type="text" name="producto3" required>
+            <!-- PRODUCTO 2 -->
+            <div class="producto">
+                <div class="producto-titulo">🎮 Producto 2</div>
 
-        <label>Precio:</label>
-        <input type="number" name="precio3" step="0.01" min="0" required>
+                <div class="campo">
+                    <label for="producto2">Nombre del producto</label>
+                    <input
+                        type="text"
+                        id="producto2"
+                        name="producto2"
+                        placeholder="Ej: Control Gamer"
+                        required
+                    >
+                </div>
 
-        <br><br>
-        <button type="submit">Calcular total</button>
+                <div class="campo">
+                    <label for="precio2">Precio</label>
+                    <input
+                        type="number"
+                        id="precio2"
+                        name="precio2"
+                        placeholder="Ej: 80000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+            </div>
 
-    </form>
+            <!-- PRODUCTO 3 -->
+            <div class="producto">
+                <div class="producto-titulo">💻 Producto 3</div>
+
+                <div class="campo">
+                    <label for="producto3">Nombre del producto</label>
+                    <input
+                        type="text"
+                        id="producto3"
+                        name="producto3"
+                        placeholder="Ej: Teclado"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="precio3">Precio</label>
+                    <input
+                        type="number"
+                        id="precio3"
+                        name="precio3"
+                        placeholder="Ej: 120000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="boton">
+                ✨ Calcular total
+            </button>
+
+        </form>
+
+        <div class="pie">
+            Proyecto académico • Calculadora de productos
+        </div>
+
+    </div>
 
 </body>
 </html>
